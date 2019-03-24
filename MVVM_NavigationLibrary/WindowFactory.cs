@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace WpfUI
 {
@@ -11,7 +10,7 @@ namespace WpfUI
     {
         private Dictionary<Type, Type> viewModelToViewAssociations = new Dictionary<Type, Type>();
 
-        public WindowFactory RegisterWindow<TViewModelWindow, TWindow>() where TWindow : Window where TViewModelWindow : IViewModelWindow
+        public WindowFactory RegisterWindow<TViewModelWindow, TWindow>() where TViewModelWindow : IViewModelWindow where TWindow : IWindow, new()
         {
             viewModelToViewAssociations.Add(typeof(TViewModelWindow), typeof(TWindow));
 
@@ -22,11 +21,18 @@ namespace WpfUI
         {
             var windowType = viewModelToViewAssociations[typeof(TViewModelWindow)];
 
-            var window = (Window)Activator.CreateInstance(windowType);
+            var window = (IWindow)Activator.CreateInstance(windowType);
 
             var windowWrapper = new WindowWrapper(this, window, viewModel);
 
             return windowWrapper;
+        }
+
+        public IWindow ShowWindow<TViewModelWindow>(TViewModelWindow viewModel) where TViewModelWindow : IViewModelWindow
+        {
+            var window = GetWindow(viewModel);
+            window.Show();
+            return window;
         }
     }
 }

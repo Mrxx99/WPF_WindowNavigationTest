@@ -2,9 +2,9 @@
 {
     public interface IWindow
     {
-        object DataContext { get; }
+        object DataContext { get; set; }
         void Close();
         void Show();
-        void ShowDialog();
+        bool? ShowDialog();
     }
 }

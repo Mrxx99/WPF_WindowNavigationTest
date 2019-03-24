@@ -17,7 +17,7 @@ namespace WpfUI
     /// <summary>
     /// Interaction logic for ChildWindow.xaml
     /// </summary>
-    public partial class ChildWindow : Window
+    public partial class ChildWindow : Window, IWindow
     {
         public ChildWindow()
         {

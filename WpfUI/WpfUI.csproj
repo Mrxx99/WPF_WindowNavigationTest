@@ -59,9 +59,6 @@
     <Compile Include="ChildWindow.xaml.cs">
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DelegateCommand.cs" />
-    <Compile Include="IViewModel.cs" />
-    <Compile Include="ViewModelBase.cs" />
     <Page Include="ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,9 +104,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MVVM_NavigationLibrary.WPF\MVVM_NavigationLibrary.WPF.csproj">
-      <Project>{abe91c3c-9dec-49e2-b69e-b9d15a392392}</Project>
-      <Name>MVVM_NavigationLibrary.WPF</Name>
+    <ProjectReference Include="..\BaseUI\BaseUI.csproj">
+      <Project>{c99c33f0-021b-4d3c-a1a0-a6ecdd021e8a}</Project>
+      <Name>BaseUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\MVVM_NavigationLibrary\MVVM_NavigationLibrary.Base.csproj">
       <Project>{c349370b-d296-409d-8810-e7ce4ea76b84}</Project>

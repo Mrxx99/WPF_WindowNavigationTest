@@ -9,5 +9,7 @@ namespace WpfUI
     public interface IWindowService
     {
         IWindow GetWindow<TViewModelWindow>(TViewModelWindow viewModel) where TViewModelWindow : IViewModelWindow;
+
+        IWindow ShowWindow<TViewModelWindow>(TViewModelWindow viewModel) where TViewModelWindow : IViewModelWindow;
     }
 }
